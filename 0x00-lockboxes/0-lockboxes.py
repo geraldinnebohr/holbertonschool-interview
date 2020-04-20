@@ -12,7 +12,7 @@ def canUnlockAll(boxes):
     for key in pocket:
         for key_box in boxes[key]:
             if key_box not in pocket:
-                if key_box <= len(boxes):
+                if key_box < len(boxes):
                     pocket.append(key_box)
     if len(pocket) == len(boxes):
         return True

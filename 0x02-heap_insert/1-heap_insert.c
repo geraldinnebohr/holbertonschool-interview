@@ -104,6 +104,8 @@ parent = NULL;
 else
 parent = parent_address(*root);
 new = binary_tree_node(parent, value);
+if (new == NULL)
+return (NULL);
 if (parent == NULL)
 *root = new;
 else if (parent->left == NULL)

@@ -74,10 +74,6 @@ aux = aux->parent;
 
 heap_t *parent_address(heap_t *root)
 {
-printf("esto es size de left %i\n", size(root->left));
-printf("esto es size de right %i\n", size(root->right));
-printf("esto es perfect de left %i\n", binary_tree_is_perfect(root->left));
-printf("esto es perfect de right %i\n", binary_tree_is_perfect(root->right));
 if (size(root->left) == 0 || size(root->right) == 0)
 return (root);
 else if (binary_tree_is_perfect(root->left) == 1

@@ -20,13 +20,13 @@ def factors(n):
             n = n / i
     if n > 2:
         mylist.append(n)
-    return(mylist)
+    return mylist
 
 
 def minOperations(n):
     """calculate the minimum operations"""
-    if type(n) != int:
-        return(0)
+    if type(n) != int or n < 2:
+        return 0
     else:
-        numOperations = factors(n)
-        return(int(sum(numOperations)))
+        numOperations = sum(factors(n))
+        return numOperations

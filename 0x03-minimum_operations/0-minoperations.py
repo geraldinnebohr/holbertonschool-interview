@@ -25,5 +25,8 @@ def factors(n):
 
 def minOperations(n):
     """calculate the minimum operations"""
-    numOperations = factors(n)
-    return(int(sum(numOperations)))
+    if type(n) != int:
+        return(0)
+    else:
+        numOperations = factors(n)
+        return(int(sum(numOperations)))

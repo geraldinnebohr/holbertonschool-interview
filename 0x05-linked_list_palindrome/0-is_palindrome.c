@@ -19,28 +19,24 @@ int list_length(listint_t **head)
 }
 
 /**
- * add_nodeint - function that adds a new node at the beginning of a list
+ * reversed - function that reversed a linked list
  * @head: double pointer
- * @n: is an integer
  * Return: Address of the new element
  */
 
-listint_t *add_nodeint(listint_t **head, const int n)
+listint_t *reversed(listint_t **head)
 {
-	listint_t *new;
+	listint_t *prev = NULL, *current = *head, *next = NULL;
 
-	new = malloc(sizeof(listint_t));
-
-	if (new == NULL)
-		return (NULL);
-
-	new->n = n;
-	new->next = *head;
-
-	*head = new;
-
+	while (current != NULL)
+	{
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
+	*head = prev;
 	return (*head);
-
 }
 
 /**
@@ -54,17 +50,16 @@ int is_palindrome(listint_t **head)
 	int length = list_length(head);
 	int half_length = length / 2;
 	int i, if_palindrome = 1;
-	listint_t *reversed_head = NULL;
+	listint_t *reversed_head;
 	listint_t *current = *head;
 	listint_t *current_reversed;
 
+	reversed_head = *head;
 	for (i = 0; i < half_length; i++)
-		current = current->next;
-	while (current != NULL)
-	{
-		reversed_head = add_nodeint(&reversed_head, current->n);
-		current = current->next;
-	}
+		reversed_head = reversed_head->next;
+	if (length % 2 != 0)
+		reversed_head = reversed_head->next;
+	reversed_head = reversed(&reversed_head);
 	current_reversed = reversed_head;
 	current = *head;
 	while (current_reversed != NULL)

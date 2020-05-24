@@ -74,6 +74,5 @@ int is_palindrome(listint_t **head)
 		current_reversed = current_reversed->next;
 		current = current->next;
 	}
-	printf("%d", half_length);
 	return (if_palindrome);
 }

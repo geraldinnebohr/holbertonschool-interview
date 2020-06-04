@@ -27,7 +27,7 @@ try:
     for line in sys.stdin:
         args = line.split(' ')
         if len(args) > 2:
-            status_line = args[-2]
+            status_line = int(args[-2])
             file_size = args[-1]
             status_code[status_line] += 1
             sum_file_size += int(file_size)

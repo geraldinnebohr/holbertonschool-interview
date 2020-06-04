@@ -26,14 +26,25 @@ try:
     i = 0
     for line in sys.stdin:
         args = line.split()
-        status_line = int(args[-2])
-        file_size = args[-1]
-        status_code[status_line] += 1
-        sum_file_size += int(file_size)
-        i += 1
-        if i % 10 == 0:
-            signal_handling(status_code, sum_file_size)
+        if len(args) > 2:
+            status_line = int(args[-2])
+            file_size = args[-1]
+            status_code[status_line] += 1
+            sum_file_size += int(file_size)
+            i += 1
+            if i % 10 == 0:
+                print('File size: {}'.format(sum_file_size))
+                sorted_keys = sorted(status_code.keys())
+                for key in sorted_keys:
+                    value = status_code[key]
+                    if value != 0:
+                        print('{}: {}'.format(key, value))
 except Exception:
     pass
 finally:
-    signal_handling(status_code, sum_file_size)
+    print('File size: {}'.format(sum_file_size))
+    sorted_keys = sorted(status_code.keys())
+    for key in sorted_keys:
+        value = status_code[key]
+        if value != 0:
+            print('{}: {}'.format(key, value))

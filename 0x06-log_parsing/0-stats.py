@@ -4,7 +4,7 @@
 import sys
 
 
-i = 1
+i = 0
 sum_file_size = 0
 status_code = {200: 0,
                301: 0,

@@ -14,17 +14,15 @@ status_code = {200: 0,
                405: 0,
                500: 0}
 
-
-def signal_handling():
-    """handle ctrl + c keyboard interruption signal"""
-    print('File size: {}'.format(sum_file_size))
-    sorted_keys = sorted(status_code.keys())
-    for key in sorted_keys:
-        value = status_code[key]
-        if value != 0:
-            print('{}: {}'.format(key, value))
-
 try:
+    def signal_handling(status_code, sum_file_size):
+        """handle ctrl + c keyboard interruption signal"""
+        print('File size: {}'.format(sum_file_size))
+        sorted_keys = sorted(status_code.keys())
+        for key in sorted_keys:
+            value = status_code[key]
+            if value != 0:
+                print('{}: {}'.format(key, value))
     i = 0
     for line in sys.stdin:
         args = line.split()
@@ -34,12 +32,8 @@ try:
         sum_file_size += int(file_size)
         i += 1
         if i % 10 == 0:
-            terminate = False
-            print('File size: {}'.format(sum_file_size))
-            for key, value in status_code.items():
-                if value != 0:
-                    print('{}: {}'.format(key, value))
+            signal_handling(status_code, sum_file_size)
 except Exception:
     pass
 finally:
-    signal_handling()
+    signal_handling(status_code, sum_file_size)

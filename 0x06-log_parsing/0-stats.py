@@ -4,6 +4,7 @@
 import sys
 
 
+i = 1
 sum_file_size = 0
 status_code = {200: 0,
                301: 0,
@@ -15,15 +16,6 @@ status_code = {200: 0,
                500: 0}
 
 try:
-    def signal_handling(status_code, sum_file_size):
-        """handle ctrl + c keyboard interruption signal"""
-        print('File size: {}'.format(sum_file_size))
-        sorted_keys = sorted(status_code.keys())
-        for key in sorted_keys:
-            value = status_code[key]
-            if value != 0:
-                print('{}: {}'.format(key, value))
-    i = 0
     for line in sys.stdin:
         args = line.split(' ')
         if len(args) > 2:

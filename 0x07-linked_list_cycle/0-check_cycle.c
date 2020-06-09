@@ -22,6 +22,8 @@ while (turtle->next != NULL && hare->next != NULL)
 {
 turtle = turtle->next;
 hare = hare->next->next;
+if (hare == NULL)
+break;
 if (turtle == hare)
 return (1);
 }

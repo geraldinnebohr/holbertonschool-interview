@@ -2,6 +2,7 @@ def validUTF8(data):
     """
     if data is a UTF-8 encoding
     return true if it is or false
+    not my code, based on an internet resource
     """
     total_bytes = 0
     first_mask = 1 << 7

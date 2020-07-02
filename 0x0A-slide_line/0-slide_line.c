@@ -26,7 +26,7 @@ while (line[z] == 0 && z < lenght)
   z++;
 }
 index = a + count_zeros;
-if (index < lenght)
+if (index >= 0)
 {
 aux = line[index];
 line[index] = line[a];

@@ -56,9 +56,12 @@ count_zeros += 1;
 z--;
 }
 index = a - count_zeros;
+if (index >= 0)
+{
 aux = line[index];
 line[index] = line[a];
 line[a] = aux;
+}
 }
 }
 

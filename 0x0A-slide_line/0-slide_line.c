@@ -128,7 +128,7 @@ add_numbers_left(line, size);
 slide_zeros_left(line, size);
 } else
 {
-return (1);
+return (0);
 }
 return (1);
 }

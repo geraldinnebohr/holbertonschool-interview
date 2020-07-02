@@ -121,7 +121,7 @@ if (direction == 1)
 slide_zeros_right(line, size);
 add_numbers_right(line, size);
 slide_zeros_right(line, size);
-} else if (direction == 1)
+} else if (direction == 0)
 {
 slide_zeros_left(line, size);
 add_numbers_left(line, size);

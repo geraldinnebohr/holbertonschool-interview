@@ -6,7 +6,8 @@
  * Return: Void function
  */
 
-void menger(int level) {
+void menger(int level)
+{
 int n, m, j, x, y;
 char s;
 m = pow(3, level);

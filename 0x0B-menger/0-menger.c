@@ -3,6 +3,7 @@
 /**
  * menger - function that draws a 2D menger sponge
  * @level: level of the menger sponge to draw
+ * Return: Void function
  */
 
 void menger(int level) {
